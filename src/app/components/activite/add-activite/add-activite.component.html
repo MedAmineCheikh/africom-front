@@ -1,0 +1,49 @@
+<main id="main" class="main">
+  <div class="pagetitle">
+    <h1>Add Activite</h1>
+    <nav>
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a routerLink="/">Home</a></li>
+        <li class="breadcrumb-item">Activites</li>
+        <li class="breadcrumb-item active">Add New</li>
+      </ol>
+    </nav>
+  </div>
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title">New Activite Form</h5>
+      <form class="row g-3">
+        <div class="col-md-6"> <label for="inputName5" class="form-label">Designation :</label> <input [(ngModel)]="activite.designation" name="nom" type="text" class="form-control" id="inputName5"></div>
+
+            <div class="col-md-4">
+          <label class="form-label">Type d'Activite :</label>
+              <select  [(ngModel)]="activite.type_activite" name="type_activite" id="type_activite" class="form-select">
+                <option value=" Maintenance" selected> Maintenance</option>
+                <option value="Radio">Radio</option>
+                <option value="Energie">Energie</option>
+                <option value="FO_IT">FO_IT</option>
+              </select>
+        </div>
+        <div class="col-md-4">
+          <label class="form-label">Type Qualification <i class="bi bi-award-fill text-success"></i></label>
+          <select  [(ngModel)]="activite.type_qualification" name="type_qualification" id="type_qualification" class="form-select">
+            <option value=" Technicien_Ordinaire" selected> Technicien Ordinaire</option>
+            <option value="Technicien_Qualifié">Technicien Qualifié</option>
+            <option value="Chef_Equipe">Chef d'Equipe</option>
+            <option value="Ingenieur">Ingenieur</option>
+          </select>
+        </div>
+        <div class="col-md-4">
+          <label class="form-label">Statut <i class="bi bi-shield-fill-check text-success"></i></label>
+          <select  [(ngModel)]="activite.statut" name="statut" id="statut" class="form-select">
+            <option value="Activer" selected>Activer</option>
+            <option value="Desactiver">Desactiver</option>
+
+          </select>
+        </div>
+        <div class="text-center"> <button type="submit" class="btn btn-primary col-2  me-1" (click)="OnaddActivite()">Save</button> <button type="reset" class="btn btn-secondary ms-1">Reset</button></div>
+      </form>
+    </div>
+  </div>
+
+</main>

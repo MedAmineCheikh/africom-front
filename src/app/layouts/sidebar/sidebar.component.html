@@ -1,0 +1,36 @@
+<aside id="sidebar" class="sidebar">
+  <ul class="sidebar-nav" id="sidebar-nav">
+    <li class="nav-item"> <a class="nav-link " routerLink="/dashboard"> <i class="bi bi-grid"></i> <span>Dashboard</span> </a></li>
+    <li class="nav-item">
+      <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" > <i class="bi bi-receipt-cutoff"></i><span>Gestion Affaires</span><i class="bi bi-chevron-down ms-auto"></i> </a>
+      <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+        <li> <a routerLink="/list-affaire"> <i class="bi bi-circle"></i><span>Affaire</span> </a></li>
+        <li> <a routerLink="/accordion"> <i class="bi bi-circle"></i><span>Accordion</span> </a></li>
+        <li> <a routerLink="/badges"> <i class="bi bi-circle"></i><span>Badges</span> </a></li>
+
+      </ul>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" > <i class="bi bi-people"></i><span>Gestion Employe</span><i class="bi bi-chevron-down ms-auto"></i> </a>
+      <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+        <li> <a routerLink="/list-employe"> <i class="bi bi-circle"></i><span>Employe</span> </a></li>
+        <li> <a routerLink="/list-activite"> <i class="bi bi-circle"></i><span>Activite</span> </a></li>
+        <li> <a routerLink="/list-qualification"> <i class="bi bi-circle"></i><span>Qualification</span> </a></li>
+      </ul>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" > <i class="bi bi-layout-text-window-reverse"></i><span>Gestion Work Order</span><i class="bi bi-chevron-down ms-auto"></i> </a>
+      <ul id="tables-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+        <li> <a routerLink="/list-order"> <i class="bi bi-circle"></i><span>Work Order</span> </a></li>
+        <li> <a routerLink="/tables-data"> <i class="bi bi-circle"></i><span>Data Tables</span> </a></li>
+      </ul>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link collapsed" data-bs-target="#charts-nav" data-bs-toggle="collapse" href="#"> <i class="bi bi-card-checklist"></i><span>Gestion Article</span><i class="bi bi-chevron-down ms-auto"></i> </a>
+      <ul id="charts-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+        <li> <a routerLink="/charts-chartjs"> <i class="bi bi-circle"></i><span>Chart.js</span> </a></li>
+        <li> <a routerLink="/charts-apexcharts"> <i class="bi bi-circle"></i><span>ApexCharts</span> </a></li>
+      </ul>
+    </li>
+   </ul>
+</aside>

@@ -1,0 +1,49 @@
+<main id="main" class="main">
+  <div class="pagetitle">
+    <h1>Update Affaire</h1>
+    <nav>
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a routerLink="/">Home</a></li>
+        <li class="breadcrumb-item" ><a routerLink="/list-affaire">Affaires</a></li>
+        <li class="breadcrumb-item active">Update</li>
+      </ol>
+    </nav>
+  </div>
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title">Update Affaire Form</h5>
+      <form class="row g-3">
+        <div class="col-md-6"> <label for="inputName5" class="form-label">Designation:</label> <input [(ngModel)]="affaire.designation_Affaire" name="nom" type="text" class="form-control" id="inputName5"></div>
+        <div class="col-md-6"> <label for="inputEmail5" class="form-label">Bon de Commande</label> <input type="text" [(ngModel)]="affaire.bon_de_Commande" name="cin" class="form-control" id="inputEmail5"></div>
+
+        <div class="col-md-3"> <label class="form-label">Montant :</label> <input type="number" [(ngModel)]="affaire.montant" name="inter" class="form-control" id="filenumb"></div>
+        <div class="col-md-3"> <label class="form-label">budget Matriel :</label> <input type="number" [(ngModel)]="affaire.montant_budgetaire_Matriel" name="frai" class="form-control" id="frai"></div>
+        <div class="col-md-3"> <label class="form-label">budget Service :</label> <input type="number" [(ngModel)]="affaire.montant_budgetaire_Service" name="hebergement" class="form-control" id="hebr"></div>
+        <div class="col-md-3"> <label class="form-label">Montant Vente :</label> <input type="number" [(ngModel)]="affaire.montant_Vente" name="vent" class="form-control" id="vent"></div>
+
+
+        <div class="col-md-3"> <label  class="form-label">Date de Debut</label> <input [(ngModel)]="affaire.date_Debut" name="debut_Previsionnel" type="date" class="form-control" id="inputZip"></div>
+        <div class="col-md-3"> <label  class="form-label">Date de Cloture</label> <input [(ngModel)]="affaire.date_Cloture" name="fin_Previsionnel" type="date" class="form-control" id="fin"></div>
+        <div class="col-md-3"> <label  class="form-label">Date Passage Execution</label> <input [(ngModel)]="affaire.date_passage_Execution" name="debut_Reel" type="date" class="form-control" id="deb"></div>
+        <div class="col-md-3">
+          <label  class="form-label">lieu multiple par Mission</label>
+          <select [(ngModel)]="affaire.lieu_multiple_par_Mission" name="lieu" id="ffff" class="form-select">
+
+            <option value="false">Non</option>
+            <option value="true">Oui</option>
+          </select>
+        </div>
+        <div class="col-md-3">
+          <label  class="form-label">Status</label>
+          <select [(ngModel)]="affaire.statut" name="statut" id="input" class="form-select">
+
+            <option value="Activer">Activer</option>
+            <option value="Desactiver">Desactiver</option>
+          </select>
+        </div>
+        <div class="text-center"> <button type="submit" class="btn btn-primary col-2  me-1" (click)="OnUpdate()">Update</button> <button type="reset" class="btn btn-secondary ms-1">Reset</button></div>
+      </form>
+    </div>
+  </div>
+
+</main>

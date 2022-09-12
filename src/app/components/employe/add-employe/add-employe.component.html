@@ -1,0 +1,41 @@
+<main id="main" class="main">
+  <div class="pagetitle">
+    <h1>Add Employe</h1>
+    <nav>
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a routerLink="/">Home</a></li>
+        <li class="breadcrumb-item">Employes</li>
+        <li class="breadcrumb-item active">Add New</li>
+      </ol>
+    </nav>
+  </div>
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title">New Employe Form</h5>
+      <form class="row g-3">
+        <div class="col-md-8"> <label for="inputName5" class="form-label">Nom et Prenom :</label> <input [(ngModel)]="employe.prenom_Nom" name="nom" type="text" class="form-control" id="inputName5"></div>
+        <div class="col-md-6"> <label for="inputEmail5" class="form-label">Numero CIN :</label> <input type="text" [(ngModel)]="employe.n_Cin" name="cin" class="form-control" id="inputEmail5"></div>
+        <div class="col-md-6"> <label  class="form-label">Numero Permis</label> <input type="text" [(ngModel)]="employe.n_Permis" name="permi" class="form-control" id="inputPassword5"></div>
+          <div class="col-md-4">
+          <label for="inputState" class="form-label">Chef de Projet</label>
+          <select [(ngModel)]="employe.chef_Projet" name="chef_Projet"id="inputState" class="form-select">
+            <option>Oui</option>
+            <option selected>Non</option>
+          </select>
+        </div>
+        <div class="col-md-4">
+          <label for="inputState" class="form-label">Status</label>
+          <select [(ngModel)]="employe.statut" name="statut" id="input" class="form-select">
+
+            <option selected>Activer</option>
+            <option>Desactiver</option>
+          </select>
+        </div>
+        <div class="col-md-3"> <label for="inputZip" class="form-label">Charge Salariale</label> <input type="date" class="form-control" id="inputZip"></div>
+
+        <div class="text-center"> <button type="submit" class="btn btn-primary col-2  me-1" (click)="OnaddEmploye()">Save</button> <button type="reset" class="btn btn-secondary ms-1">Reset</button></div>
+      </form>
+    </div>
+  </div>
+
+</main>

@@ -1,0 +1,42 @@
+<main id="main" class="main">
+
+  <div class="pagetitle">
+    <h1>Update Employe</h1>
+    <nav>
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a routerLink="/">Home</a></li>
+        <li class="breadcrumb-item">Employes</li>
+        <li class="breadcrumb-item active">Add New</li>
+      </ol>
+    </nav>
+  </div>
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title">Update Employe Form</h5>
+      <form class="row g-3">
+        <div class="col-md-8"> <label  class="form-label">Nom et Prenom :</label> <input [(ngModel)]="employe.prenom_Nom" name="nom" type="text" class="form-control" id="iname5"></div>
+        <div class="col-md-6"> <label  class="form-label">Numero CIN :</label> <input type="text" [(ngModel)]="employe.n_Cin" name="cin" class="form-control" id="inputEl5"></div>
+        <div class="col-md-6"> <label  class="form-label">Numero Permis</label> <input type="text" [(ngModel)]="employe.n_Permis" name="permi" class="form-control" id="input"></div>
+        <div class="col-md-4">
+          <label  class="form-label">Chef de Projet</label>
+          <select [(ngModel)]="employe.chef_Projet" name="chef_Projet"id="inpuate" class="form-select">
+            <option value="true">Oui</option>
+            <option value="false" >Non</option>
+          </select>
+        </div>
+        <div class="col-md-4">
+          <label  class="form-label">Status</label>
+          <select [(ngModel)]="employe.statut" name="statut" id="inpt" class="form-select">
+
+            <option value="Activer" >Activer</option>
+            <option value="Desactiver">Desactiver</option>
+          </select>
+        </div>
+        <div class="col-md-3"> <label  class="form-label">Charge Salariale</label> <input [(ngModel)]="employe.charge_Salariale" name="da" type="date" class="form-control" id="inpup"></div>
+
+        <div class="text-center"> <button type="submit" class="btn btn-primary col-2  me-1" (click)="OnUpdate()">Update</button> <button type="reset" class="btn btn-secondary ms-1">Reset</button></div>
+      </form>
+    </div>
+  </div>
+
+</main>

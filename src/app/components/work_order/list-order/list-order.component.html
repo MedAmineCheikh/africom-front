@@ -1,0 +1,55 @@
+<main id="main" class="main">
+  <div class="pagetitle">
+    <h1>Work Orders Table</h1>
+    <nav>
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a routerLink="/">Home</a></li>
+        <li class="breadcrumb-item">Table</li>
+        <li class="breadcrumb-item active">Work Orders</li>
+      </ol>
+    </nav>
+  </div>
+  <section class="section">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Work Orders List</h5>
+            <p>Add lightweight datatables to your project.</p>
+            <button class="btn btn-outline-primary " routerLink="/add-order">Add Work Order
+              <i class="bi bi-person-plus-fill"></i></button>
+            <table class="table table-hover">
+              <thead>
+              <tr>
+
+                <th scope="col">Demandeur</th>
+                <th scope="col">Hebergement</th>
+                <th scope="col">Remarque</th>
+                <th scope="col">Debut Previsionnel</th>
+                <th scope="col">Fin Previsionnel</th>
+                <th scope="col">Frais Mission</th>
+                <th scope="col">Detail</th>
+                <th scope="col">Update</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr *ngFor="let o of orders">
+                <td>{{o.demandeur}}</td>
+                <td>{{o.hebergement | number}}</td>
+                <td>{{o.remarque}}</td>
+                <td>{{o.debut_Previsionnel}}</td>
+                <td>{{o.fin_Previsionnel}}</td>
+                <td>{{o.frais_Mission | number}}</td>
+                <td> <button class="btn btn-secondary"><i class="bi bi-info-square"></i></button></td>
+                <td><button  (click)="getOrderId(o.id)" class="btn btn-warning"  ><i class="bi bi-arrow-up-left-square"></i></button></td>
+
+              </tr>
+
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
