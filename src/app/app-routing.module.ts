@@ -35,9 +35,10 @@ import {
 import {
   AddArticleMissionComponent
 } from "./components/article_mission/add-article-mission/add-article-mission.component";
+import {LoginComponent} from "./components/login/login.component";
 
 const routes: Routes = [
-  {path: '', component: ListEmployeComponent},
+  {path: '', component: LoginComponent},
   {path: 'list-employe', component: ListEmployeComponent},
   {path: 'add-employe', component: AddEmployeComponent},
   {path: "update-employe/:matricule", component: UpdateEmployeComponent},
@@ -63,6 +64,7 @@ const routes: Routes = [
   {path: 'update-articleMission/:id', component: UpdateArticleMissionComponent},
   {path: 'list-articleMission', component: ListArticleMissionComponent},
   {path: 'add-articleMission', component: AddArticleMissionComponent},
+  {path: 'login', component: LoginComponent},
 ];
 
 @NgModule({
