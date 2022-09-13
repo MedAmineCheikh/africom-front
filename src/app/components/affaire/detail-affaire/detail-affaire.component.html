@@ -20,7 +20,8 @@
           <div class="card-body pt-3">
             <ul class="nav nav-tabs nav-tabs-bordered">
               <li class="nav-item"> <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#profile-overview">Overview</button></li>
-              <li class="nav-item"> <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-edit">Affecter un Article</button></li>
+              <li class="nav-item"> <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-edit">Update Affaire</button></li>
+              <li class="nav-item"> <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-afftecter">Affecter un Article</button></li>
               </ul>
             <div class="tab-content pt-2">
               <div class="tab-pane fade show active profile-overview" id="profile-overview">
@@ -66,62 +67,61 @@
               </div>
               <div class="tab-pane fade profile-edit pt-3" id="profile-edit">
                 <form>
+
                   <div class="row mb-3">
-                    <label  class="col-md-4 col-lg-3 col-form-label">Profile Image</label>
-                    <div class="col-md-8 col-lg-9">
-                      <img src="assets/img/profile-img.jpg" alt="Profile">
-                      <div class="pt-2"> <a href="#" class="btn btn-primary btn-sm" title="Upload new profile image"><i class="bi bi-upload"></i></a> <a href="#" class="btn btn-danger btn-sm" title="Remove my profile image"><i class="bi bi-trash"></i></a></div>
-                    </div>
+                    <label for="fullName" class="col-md-4 col-lg-3 col-form-label">Designation</label>
+                    <div class="col-md-8 col-lg-9"> <input [(ngModel)]="affaire.designation_Affaire" name="fullName" type="text" class="form-control" id="fullName" ></div>
+                  </div>
+
+                  <div class="row mb-3">
+                    <label for="company" class="col-md-4 col-lg-3 col-form-label">Bon de Commande</label>
+                    <div class="col-md-8 col-lg-9"> <input [(ngModel)]="affaire.bon_de_Commande" name="company" type="text" class="form-control" id="company" ></div>
                   </div>
                   <div class="row mb-3">
-                    <label for="fullName" class="col-md-4 col-lg-3 col-form-label">Full Name</label>
-                    <div class="col-md-8 col-lg-9"> <input name="fullName" type="text" class="form-control" id="fullName" value="Jassa"></div>
+                    <label for="Job" class="col-md-4 col-lg-3 col-form-label">Montant</label>
+                    <div class="col-md-8 col-lg-9"> <input [(ngModel)]="affaire.montant"name="job" type="number" class="form-control" id="Job" ></div>
                   </div>
                   <div class="row mb-3">
-                    <label for="about" class="col-md-4 col-lg-3 col-form-label">About</label>
-                    <div class="col-md-8 col-lg-9"><textarea name="about" class="form-control" id="about" style="height: 100px">Sunt est soluta temporibus accusantium neque nam maiores cumque temporibus. Tempora libero non est unde veniam est qui dolor. Ut sunt iure rerum quae quisquam autem eveniet perspiciatis odit. Fuga sequi sed ea saepe at unde.</textarea></div>
+                    <label for="Country" class="col-md-4 col-lg-3 col-form-label">Budget Matriel</label>
+                    <div class="col-md-8 col-lg-9"> <input [(ngModel)]="affaire.montant_budgetaire_Matriel" name="country" type="number" class="form-control" id="Country" ></div>
                   </div>
                   <div class="row mb-3">
-                    <label for="company" class="col-md-4 col-lg-3 col-form-label">Company</label>
-                    <div class="col-md-8 col-lg-9"> <input name="company" type="text" class="form-control" id="company" value="Therichpost"></div>
+                    <label for="Address" class="col-md-4 col-lg-3 col-form-label">Budget Service</label>
+                    <div class="col-md-8 col-lg-9"> <input [(ngModel)]="affaire.montant_budgetaire_Service" name="address" type="number" class="form-control" id="Address" ></div>
                   </div>
                   <div class="row mb-3">
-                    <label for="Job" class="col-md-4 col-lg-3 col-form-label">Job</label>
-                    <div class="col-md-8 col-lg-9"> <input name="job" type="text" class="form-control" id="Job" value="Web Designer"></div>
+                    <label for="Phone" class="col-md-4 col-lg-3 col-form-label">Montant Vente</label>
+                    <div class="col-md-8 col-lg-9"> <input [(ngModel)]="affaire.montant_Vente" name="phone" type="number" class="form-control" id="Phone" ></div>
                   </div>
                   <div class="row mb-3">
-                    <label for="Country" class="col-md-4 col-lg-3 col-form-label">Country</label>
-                    <div class="col-md-8 col-lg-9"> <input name="country" type="text" class="form-control" id="Country" value="USA"></div>
+                    <label for="Email" class="col-md-4 col-lg-3 col-form-label">Date de Debut</label>
+                    <div class="col-md-8 col-lg-9"> <input [(ngModel)]="affaire.date_Debut" name="email" type="date" class="form-control" id="Email" ></div>
                   </div>
                   <div class="row mb-3">
-                    <label for="Address" class="col-md-4 col-lg-3 col-form-label">Address</label>
-                    <div class="col-md-8 col-lg-9"> <input name="address" type="text" class="form-control" id="Address" value="Ludhiana, Punjab, India"></div>
+                    <label for="Twitter" class="col-md-4 col-lg-3 col-form-label">Date Cloture</label>
+                    <div class="col-md-8 col-lg-9"> <input [(ngModel)]="affaire.date_Cloture" name="twitter" type="date" class="form-control" id="Twitter" ></div>
                   </div>
                   <div class="row mb-3">
-                    <label for="Phone" class="col-md-4 col-lg-3 col-form-label">Phone</label>
-                    <div class="col-md-8 col-lg-9"> <input name="phone" type="text" class="form-control" id="Phone" value="(436) 486-3538 x29071"></div>
+                    <label for="Facebook" class="col-md-4 col-lg-3 col-form-label">Date d'Execution</label>
+                    <div class="col-md-8 col-lg-9"> <input [(ngModel)]="affaire.date_passage_Execution" name="facebook" type="date" class="form-control" id="Facebook" ></div>
                   </div>
                   <div class="row mb-3">
-                    <label for="Email" class="col-md-4 col-lg-3 col-form-label">Email</label>
-                    <div class="col-md-8 col-lg-9"> <input name="email" type="email" class="form-control" id="Email" value="k.anderson@example.com"></div>
+                    <label  class="col-md-4 col-lg-3 col-form-label">lieu multiple par Mission</label>
+                    <div class="col-md-8 col-lg-9">  <select [(ngModel)]="affaire.lieu_multiple_par_Mission" name="lieu" id="ffff" class="form-select">
+
+                      <option value="false">Non</option>
+                      <option value="true">Oui</option>
+                    </select></div>
                   </div>
                   <div class="row mb-3">
-                    <label for="Twitter" class="col-md-4 col-lg-3 col-form-label">Twitter Profile</label>
-                    <div class="col-md-8 col-lg-9"> <input name="twitter" type="text" class="form-control" id="Twitter" value="https://twitter.com/#"></div>
+                    <label  class="col-md-4 col-lg-3 col-form-label">Status</label>
+                    <div class="col-md-8 col-lg-9"> <select [(ngModel)]="affaire.statut" name="statut" id="input" class="form-select">
+
+                      <option value="Activer">Activer</option>
+                      <option value="Desactiver">Desactiver</option>
+                    </select> </div>
                   </div>
-                  <div class="row mb-3">
-                    <label for="Facebook" class="col-md-4 col-lg-3 col-form-label">Facebook Profile</label>
-                    <div class="col-md-8 col-lg-9"> <input name="facebook" type="text" class="form-control" id="Facebook" value="https://facebook.com/#"></div>
-                  </div>
-                  <div class="row mb-3">
-                    <label for="Instagram" class="col-md-4 col-lg-3 col-form-label">Instagram Profile</label>
-                    <div class="col-md-8 col-lg-9"> <input name="instagram" type="text" class="form-control" id="Instagram" value="https://instagram.com/#"></div>
-                  </div>
-                  <div class="row mb-3">
-                    <label for="Linkedin" class="col-md-4 col-lg-3 col-form-label">Linkedin Profile</label>
-                    <div class="col-md-8 col-lg-9"> <input name="linkedin" type="text" class="form-control" id="Linkedin" value="https://linkedin.com/#"></div>
-                  </div>
-                  <div class="text-center"> <button type="submit" class="btn btn-primary">Save Changes</button></div>
+                  <div class="text-center"> <button (click)="OnUpdate()" class="btn btn-primary">Save Changes</button></div>
                 </form>
               </div>
               <div class="tab-pane fade pt-3" id="profile-settings">
@@ -135,7 +135,7 @@
                       <div class="form-check"> <input class="form-check-input" type="checkbox" id="securityNotify" checked disabled> <label class="form-check-label" for="securityNotify"> Security alerts </label></div>
                     </div>
                   </div>
-                  <div class="text-center"> <button type="submit" class="btn btn-primary">Save Changes</button></div>
+                  <div class="text-center"> <button  class="btn btn-primary" >Save Changes</button></div>
                 </form>
               </div>
               <div class="tab-pane fade pt-3" id="profile-change-password">
@@ -152,7 +152,7 @@
                     <label for="renewPassword" class="col-md-4 col-lg-3 col-form-label">Re-enter New Password</label>
                     <div class="col-md-8 col-lg-9"> <input name="renewpassword" type="password" class="form-control" id="renewPassword"></div>
                   </div>
-                  <div class="text-center"> <button type="submit" class="btn btn-primary">Change Password</button></div>
+                  <div class="text-center"> <button  class="btn btn-primary">Change Password</button></div>
                 </form>
               </div>
             </div>

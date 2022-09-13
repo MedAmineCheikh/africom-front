@@ -24,5 +24,15 @@ articles!:Article[];
     },error =>
       console.log(error));
   }
-
+  OnUpdate() {
+    this.affaireService.updateAffaire(this.affaire).subscribe(value => {
+      this.reload();
+    },error =>console.log(error))
+  }
+  reload(){
+    this.router.navigate(["detail-affaire",this.id])
+      .then(() => {
+        window.location.reload();
+      });
+  }
 }
