@@ -33,6 +33,7 @@ import { DetailArticleMissionComponent } from './components/article_mission/deta
 import { UpdateArticleMissionComponent } from './components/article_mission/update-article-mission/update-article-mission.component';
 import { ListArticleMissionComponent } from './components/article_mission/list-article-mission/list-article-mission.component';
 import { AddArticleMissionComponent } from './components/article_mission/add-article-mission/add-article-mission.component';
+import { LoginComponent } from './components/login/login.component';
 
 @NgModule({
   declarations: [
@@ -64,7 +65,8 @@ import { AddArticleMissionComponent } from './components/article_mission/add-art
     DetailArticleMissionComponent,
     UpdateArticleMissionComponent,
     ListArticleMissionComponent,
-    AddArticleMissionComponent
+    AddArticleMissionComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

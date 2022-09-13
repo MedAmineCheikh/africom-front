@@ -21,4 +21,9 @@ affaires!:Affaire[];
    return  console.log("navigate passed");
 
   }
+  getIdDetail(id: number) {
+    this.router.navigate(["detail-affaire",id]);
+   return  console.log("navigate passed");
+
+  }
 }

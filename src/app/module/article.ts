@@ -1,5 +1,5 @@
 export class Article {
-  affaire!:                Affaire;
+
   code!:                   string;
   designation!:            string;
   quantite_Contractuelle!: number;

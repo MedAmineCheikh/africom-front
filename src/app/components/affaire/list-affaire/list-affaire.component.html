@@ -35,7 +35,7 @@
                 <td>{{a.bon_de_Commande}}</td>
                 <td>{{a.date_Debut}}</td>
                 <td>{{a.date_Cloture}}</td>
-                <td> <button class="btn btn-secondary"><i class="bi bi-info-square"></i></button></td>
+                <td> <button class="btn btn-secondary" (click)="getIdDetail(a.n_Affiaire)"><i class="bi bi-info-square"></i></button></td>
                 <td><button  (click)="getId(a.n_Affiaire)" class="btn btn-warning"  ><i class="bi bi-arrow-up-left-square"></i></button></td>
 
               </tr>

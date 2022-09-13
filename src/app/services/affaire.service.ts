@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {Affaire} from "../module/affaire";
+import {Article} from "../module/article";
 
 @Injectable({
   providedIn: 'root'
@@ -20,5 +21,8 @@ export class AffaireService {
   }
   public updateAffaire(a:Affaire):Observable<Affaire>{
     return this.http.put<Affaire>(this.host+"update-affairedto/",a);
+  }
+  public getarticleAffaire(id:number):Observable<Article[]>{
+    return this.http.get<Article[]>(this.host+"affaireArticle/"+id)
   }
 }
