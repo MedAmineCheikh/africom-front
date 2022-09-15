@@ -21,4 +21,12 @@ export class ArticleService {
   public updateArticle(a:Article):Observable<Article>{
     return this.http.put<Article>(this.host+"update-article/",a);
   }
+  public afftecterArticleToAffaire(id:number,ida:String,a:Article){
+  return this.http.put(this.host+"affecterAffaireToArticle/"+id+"/"+ida,a);
+  }
+  public searchArticle(kw:String):Observable<Article[]>{
+    return this.http.get<Article[]>(this.host+"searcharticles?Keyword="+kw);
+  } public pageArticle(pagearticle:number,size:number):Observable<Article[]>{
+    return this.http.get<Article[]>(this.host+"pagearticles?page="+pagearticle+"&size="+size);
+  }
 }

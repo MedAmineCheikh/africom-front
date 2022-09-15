@@ -25,4 +25,5 @@ export class AffaireService {
   public getarticleAffaire(id:number):Observable<Article[]>{
     return this.http.get<Article[]>(this.host+"affaireArticle/"+id)
   }
+
 }
