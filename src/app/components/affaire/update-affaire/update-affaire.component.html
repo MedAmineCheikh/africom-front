@@ -1,51 +1,54 @@
-<app-header>    </app-header>
-<app-sidebar></app-sidebar>
-<main id="main" class="main">
-  <div class="pagetitle">
-    <h1>Update Affaire</h1>
-    <nav>
-      <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a routerLink="/">Home</a></li>
-        <li class="breadcrumb-item" ><a routerLink="/list-affaire">Affaires</a></li>
-        <li class="breadcrumb-item active">Update</li>
-      </ol>
-    </nav>
-  </div>
-  <div class="card">
-    <div class="card-body">
-      <h5 class="card-title">Update Affaire Form</h5>
-      <form class="row g-3">
-        <div class="col-md-6"> <label for="inputName5" class="form-label">Designation:</label> <input [(ngModel)]="affaire.designation_Affaire" name="nom" type="text" class="form-control" id="inputName5"></div>
-        <div class="col-md-6"> <label for="inputEmail5" class="form-label">Bon de Commande</label> <input type="text" [(ngModel)]="affaire.bon_de_Commande" name="cin" class="form-control" id="inputEmail5"></div>
+<div class="row mb-3">
+  <label for="fullName" class="col-md-4 col-lg-3 col-form-label">Designation</label>
+  <div class="col-md-8 col-lg-9"> <input [(ngModel)]="affaire.designation_Affaire" name="fullName" type="text" class="form-control" id="fullName" ></div>
+</div>
 
-        <div class="col-md-3"> <label class="form-label">Montant :</label> <input type="number" [(ngModel)]="affaire.montant" name="inter" class="form-control" id="filenumb"></div>
-        <div class="col-md-3"> <label class="form-label">budget Matriel :</label> <input type="number" [(ngModel)]="affaire.montant_budgetaire_Matriel" name="frai" class="form-control" id="frai"></div>
-        <div class="col-md-3"> <label class="form-label">budget Service :</label> <input type="number" [(ngModel)]="affaire.montant_budgetaire_Service" name="hebergement" class="form-control" id="hebr"></div>
-        <div class="col-md-3"> <label class="form-label">Montant Vente :</label> <input type="number" [(ngModel)]="affaire.montant_Vente" name="vent" class="form-control" id="vent"></div>
+<div class="row mb-3">
+  <label for="company" class="col-md-4 col-lg-3 col-form-label">Bon de Commande</label>
+  <div class="col-md-8 col-lg-9"> <input [(ngModel)]="affaire.bon_de_Commande" name="company" type="text" class="form-control" id="company" ></div>
+</div>
+<div class="row mb-3">
+  <label for="Job" class="col-md-4 col-lg-3 col-form-label">Montant</label>
+  <div class="col-md-8 col-lg-9"> <input [(ngModel)]="affaire.montant"name="job" type="number" class="form-control" id="Job" ></div>
+</div>
+<div class="row mb-3">
+  <label for="Country" class="col-md-4 col-lg-3 col-form-label">Budget Matriel</label>
+  <div class="col-md-8 col-lg-9"> <input [(ngModel)]="affaire.montant_budgetaire_Matriel" name="country" type="number" class="form-control" id="Country" ></div>
+</div>
+<div class="row mb-3">
+  <label for="Address" class="col-md-4 col-lg-3 col-form-label">Budget Service</label>
+  <div class="col-md-8 col-lg-9"> <input [(ngModel)]="affaire.montant_budgetaire_Service" name="address" type="number" class="form-control" id="Address" ></div>
+</div>
+<div class="row mb-3">
+  <label for="Phone" class="col-md-4 col-lg-3 col-form-label">Montant Vente</label>
+  <div class="col-md-8 col-lg-9"> <input [(ngModel)]="affaire.montant_Vente" name="phone" type="number" class="form-control" id="Phone" ></div>
+</div>
+<div class="row mb-3">
+  <label for="Email" class="col-md-4 col-lg-3 col-form-label">Date de Debut</label>
+  <div class="col-md-8 col-lg-9"> <input [(ngModel)]="affaire.date_Debut" name="email" type="date" class="form-control" id="Email" ></div>
+</div>
+<div class="row mb-3">
+  <label for="Twitter" class="col-md-4 col-lg-3 col-form-label">Date Cloture</label>
+  <div class="col-md-8 col-lg-9"> <input [(ngModel)]="affaire.date_Cloture" name="twitter" type="date" class="form-control" id="Twitter" ></div>
+</div>
+<div class="row mb-3">
+  <label for="Facebook" class="col-md-4 col-lg-3 col-form-label">Date d'Execution</label>
+  <div class="col-md-8 col-lg-9"> <input [(ngModel)]="affaire.date_passage_Execution" name="facebook" type="date" class="form-control" id="Facebook" ></div>
+</div>
+<div class="row mb-3">
+  <label  class="col-md-4 col-lg-3 col-form-label">lieu multiple par Mission</label>
+  <div class="col-md-8 col-lg-9">  <select [(ngModel)]="affaire.lieu_multiple_par_Mission" name="lieu" id="ffff" class="form-select">
 
+    <option value="false">Non</option>
+    <option value="true">Oui</option>
+  </select></div>
+</div>
+<div class="row mb-3">
+  <label  class="col-md-4 col-lg-3 col-form-label">Status</label>
+  <div class="col-md-8 col-lg-9"> <select [(ngModel)]="affaire.statut" name="statut" id="input" class="form-select">
 
-        <div class="col-md-3"> <label  class="form-label">Date de Debut</label> <input [(ngModel)]="affaire.date_Debut" name="debut_Previsionnel" type="date" class="form-control" id="inputZip"></div>
-        <div class="col-md-3"> <label  class="form-label">Date de Cloture</label> <input [(ngModel)]="affaire.date_Cloture" name="fin_Previsionnel" type="date" class="form-control" id="fin"></div>
-        <div class="col-md-3"> <label  class="form-label">Date Passage Execution</label> <input [(ngModel)]="affaire.date_passage_Execution" name="debut_Reel" type="date" class="form-control" id="deb"></div>
-        <div class="col-md-3">
-          <label  class="form-label">lieu multiple par Mission</label>
-          <select [(ngModel)]="affaire.lieu_multiple_par_Mission" name="lieu" id="ffff" class="form-select">
-
-            <option value="false">Non</option>
-            <option value="true">Oui</option>
-          </select>
-        </div>
-        <div class="col-md-3">
-          <label  class="form-label">Status</label>
-          <select [(ngModel)]="affaire.statut" name="statut" id="input" class="form-select">
-
-            <option value="Activer">Activer</option>
-            <option value="Desactiver">Desactiver</option>
-          </select>
-        </div>
-        <div class="text-center"> <button type="submit" class="btn btn-primary col-2  me-1" (click)="OnUpdate()">Update</button> <button type="reset" class="btn btn-secondary ms-1">Reset</button></div>
-      </form>
-    </div>
-  </div>
-
-</main>
+    <option value="Activer">Activer</option>
+    <option value="Desactiver">Desactiver</option>
+  </select> </div>
+</div>
+<div class="text-center"> <button (click)="OnUpdate()" class="btn btn-primary">Save Changes</button></div>

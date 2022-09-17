@@ -68,114 +68,12 @@
               <div class="tab-pane fade profile-edit pt-3" id="profile-edit">
                 <form>
 
-                  <div class="row mb-3">
-                    <label for="fullName" class="col-md-4 col-lg-3 col-form-label">Designation</label>
-                    <div class="col-md-8 col-lg-9"> <input [(ngModel)]="affaire.designation_Affaire" name="fullName" type="text" class="form-control" id="fullName" ></div>
-                  </div>
-
-                  <div class="row mb-3">
-                    <label for="company" class="col-md-4 col-lg-3 col-form-label">Bon de Commande</label>
-                    <div class="col-md-8 col-lg-9"> <input [(ngModel)]="affaire.bon_de_Commande" name="company" type="text" class="form-control" id="company" ></div>
-                  </div>
-                  <div class="row mb-3">
-                    <label for="Job" class="col-md-4 col-lg-3 col-form-label">Montant</label>
-                    <div class="col-md-8 col-lg-9"> <input [(ngModel)]="affaire.montant"name="job" type="number" class="form-control" id="Job" ></div>
-                  </div>
-                  <div class="row mb-3">
-                    <label for="Country" class="col-md-4 col-lg-3 col-form-label">Budget Matriel</label>
-                    <div class="col-md-8 col-lg-9"> <input [(ngModel)]="affaire.montant_budgetaire_Matriel" name="country" type="number" class="form-control" id="Country" ></div>
-                  </div>
-                  <div class="row mb-3">
-                    <label for="Address" class="col-md-4 col-lg-3 col-form-label">Budget Service</label>
-                    <div class="col-md-8 col-lg-9"> <input [(ngModel)]="affaire.montant_budgetaire_Service" name="address" type="number" class="form-control" id="Address" ></div>
-                  </div>
-                  <div class="row mb-3">
-                    <label for="Phone" class="col-md-4 col-lg-3 col-form-label">Montant Vente</label>
-                    <div class="col-md-8 col-lg-9"> <input [(ngModel)]="affaire.montant_Vente" name="phone" type="number" class="form-control" id="Phone" ></div>
-                  </div>
-                  <div class="row mb-3">
-                    <label for="Email" class="col-md-4 col-lg-3 col-form-label">Date de Debut</label>
-                    <div class="col-md-8 col-lg-9"> <input [(ngModel)]="affaire.date_Debut" name="email" type="date" class="form-control" id="Email" ></div>
-                  </div>
-                  <div class="row mb-3">
-                    <label for="Twitter" class="col-md-4 col-lg-3 col-form-label">Date Cloture</label>
-                    <div class="col-md-8 col-lg-9"> <input [(ngModel)]="affaire.date_Cloture" name="twitter" type="date" class="form-control" id="Twitter" ></div>
-                  </div>
-                  <div class="row mb-3">
-                    <label for="Facebook" class="col-md-4 col-lg-3 col-form-label">Date d'Execution</label>
-                    <div class="col-md-8 col-lg-9"> <input [(ngModel)]="affaire.date_passage_Execution" name="facebook" type="date" class="form-control" id="Facebook" ></div>
-                  </div>
-                  <div class="row mb-3">
-                    <label  class="col-md-4 col-lg-3 col-form-label">lieu multiple par Mission</label>
-                    <div class="col-md-8 col-lg-9">  <select [(ngModel)]="affaire.lieu_multiple_par_Mission" name="lieu" id="ffff" class="form-select">
-
-                      <option value="false">Non</option>
-                      <option value="true">Oui</option>
-                    </select></div>
-                  </div>
-                  <div class="row mb-3">
-                    <label  class="col-md-4 col-lg-3 col-form-label">Status</label>
-                    <div class="col-md-8 col-lg-9"> <select [(ngModel)]="affaire.statut" name="statut" id="input" class="form-select">
-
-                      <option value="Activer">Activer</option>
-                      <option value="Desactiver">Desactiver</option>
-                    </select> </div>
-                  </div>
-                  <div class="text-center"> <button (click)="OnUpdate()" class="btn btn-primary">Save Changes</button></div>
+                 <app-update-affaire></app-update-affaire>
                 </form>
               </div>
               <div class="tab-pane fade pt-3" id="profile-afftecter">
                 <form>
-                  <div class="row mb-3">
-                    <h2 class="card-title text-center">Affecter un Article  </h2>
-
-
-                        <table class="table table-hover">
-                          <thead>
-                          <tr>
-                            <th scope="col">Designation</th>
-                            <th scope="col">Q Realisee</th>
-                            <th scope="col">Q Contractuelle</th>
-                            <th scope="col">Status</th>
-                          </tr>
-                          </thead>
-                          <tbody>
-                          <tr *ngFor="let a of articlesFind">
-                            <td>{{a.designation}}</td>
-                            <td>{{a.quantite_Realisee| number}}</td>
-                            <td>{{a.quantite_Contractuelle | number}}</td>
-                            <td>{{a.statut}}</td>
-                            <td><button  (click)="getAffecter(a.code)" class="btn btn-outline-primary"  > Pick</button></td>
-                          </tr>
-                          </tbody>
-                        </table>
-                        <ul *ngIf="(articlesFind.length)%size+1" class="nav nav-pills">
-                          <li *ngFor=" let b of [].constructor((articlesFind.length)/size+1);let pagearticle=index" >
-                            <a (click)="getTopageArticle(pagearticle)" class="btn btn-outline-primary" >{{pagearticle}}</a>
-                          </li>
-                        </ul>
-                      </div>
-                  <h2 class="card-title text-center">Veuillez Confirmer</h2>
-                  <table *ngIf="articleAffecter" class="table table-hover">
-                    <thead>
-                    <tr>
-                      <th scope="col">Designation</th>
-                      <th scope="col">Q Realisee</th>
-                      <th scope="col">Q Contractuelle</th>
-                      <th scope="col">Status</th>
-                  </tr>
-                  </thead>
-                  <tbody>
-                  <tr >
-                    <td>{{articleAffecter.designation}}</td>
-                    <td>{{articleAffecter.quantite_Realisee| number}}</td>
-                    <td>{{articleAffecter.quantite_Contractuelle | number}}</td>
-                    <td>{{articleAffecter.statut}}</td>
-                  </tr>
-                  </tbody>
-                  </table>
-                    <div class="text-center"> <button  class="btn btn-primary" [disabled]="articleAffecter.code==null" (click)="OnAffecter(articleAffecter.code)">Affecter </button></div>
-
+                 <app-affecter-article></app-affecter-article>
                 </form>
               </div>
 

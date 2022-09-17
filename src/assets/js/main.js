@@ -25,7 +25,7 @@
   }
 
   /**
-   * Easy on scroll event listener 
+   * Easy on scroll event listener
    */
   const onscroll = (el, listener) => {
     el.addEventListener('scroll', listener)
@@ -356,7 +356,7 @@
       ]
     }]
   });
-  var trafficChart = echarts.init(document.querySelector("#trafficChart")).setOption({
+ /* var trafficChart = echarts.init(document.querySelector("#trafficChart")).setOption({
     tooltip: {
       trigger: 'item'
     },
@@ -405,10 +405,10 @@
         }
       ]
     }]
-  });
-  
+  });*/
+
 //Echart
-var EareaChart = echarts.init(document.querySelector("#EareaChart")).setOption({
+/*var EareaChart = echarts.init(document.querySelector("#EareaChart")).setOption({
   xAxis: {
     type: 'category',
     boundaryGap: false,
@@ -417,7 +417,7 @@ var EareaChart = echarts.init(document.querySelector("#EareaChart")).setOption({
   yAxis: {
     type: 'value'
   },
-  
+
   series: [{
     data: [820, 932, 901, 934, 1290, 1330, 1320],
     type: 'line',
@@ -478,9 +478,9 @@ var verticalBarChart = echarts.init(document.querySelector("#verticalBarChart"))
   ]
 });
 
-  
-  
-  
+
+
+
   }, 1);
   new ApexCharts(document.querySelector("#reportsChart"), {
     series: [{
@@ -529,9 +529,9 @@ var verticalBarChart = echarts.init(document.querySelector("#verticalBarChart"))
         format: 'dd/MM/yy HH:mm'
       },
     }
-  }).render();
+  }).render();*/
   //ApexCharts
-  var lineChart = new ApexCharts(document.querySelector("#AlineChart"), {
+  /*var lineChart = new ApexCharts(document.querySelector("#AlineChart"), {
     series: [{
       name: "Desktops",
       data: [10, 41, 35, 51, 49, 62, 69, 91, 148]
@@ -558,7 +558,7 @@ var verticalBarChart = echarts.init(document.querySelector("#verticalBarChart"))
     xaxis: {
       categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep'],
     }
-  }).render();
+  }).render();*/
 
   const series = {
     "monthDataSeries1": {
@@ -906,6 +906,7 @@ var verticalBarChart = echarts.init(document.querySelector("#verticalBarChart"))
       ]
     }
   }
+/*
   var AareaChart = new ApexCharts(document.querySelector("#AareaChart"), {
     series: [{
       name: "STOCK ABC",
@@ -939,8 +940,9 @@ var verticalBarChart = echarts.init(document.querySelector("#verticalBarChart"))
       horizontalAlign: 'left'
     }
   }).render();
+*/
   //Chart.js
-  new Chart(document.querySelector('#lineChart'), {
+  /*new Chart(document.querySelector('#lineChart'), {
     type: 'line',
     data: {
       labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
@@ -1211,6 +1213,6 @@ var verticalBarChart = echarts.init(document.querySelector("#verticalBarChart"))
       }
     }
   });
+*/
 
- 
-})();
+})();})

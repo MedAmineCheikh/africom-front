@@ -11,6 +11,7 @@ import {AffaireService} from "../../../services/affaire.service";
 export class UpdateAffaireComponent implements OnInit {
   id!:number;
   affaire:Affaire=new Affaire();
+
   constructor(private router: Router,private affaireService:AffaireService,private activatedroute:ActivatedRoute) { }
 
   ngOnInit(): void {
@@ -21,10 +22,13 @@ export class UpdateAffaireComponent implements OnInit {
 
   OnUpdate() {
     this.affaireService.updateAffaire(this.affaire).subscribe(value => {
-      this.GotoAffaires();
+      this.reload();
     },error =>console.log(error))
   }
-  GotoAffaires(){
-    this.router.navigateByUrl("/list-affaire");
+  reload(){
+    this.router.navigate(["detail-affaire",this.id])
+      .then(() => {
+        window.location.reload();
+      });
   }
 }

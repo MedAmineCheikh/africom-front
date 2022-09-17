@@ -36,6 +36,7 @@ import {
   AddArticleMissionComponent
 } from "./components/article_mission/add-article-mission/add-article-mission.component";
 import {LoginComponent} from "./components/login/login.component";
+import {AffecterArticleComponent} from "./components/affaire/affecter-article/affecter-article.component";
 
 const routes: Routes = [
   {path: '', component: LoginComponent},
@@ -64,6 +65,7 @@ const routes: Routes = [
   {path: 'update-articleMission/:id', component: UpdateArticleMissionComponent},
   {path: 'list-articleMission', component: ListArticleMissionComponent},
   {path: 'add-articleMission', component: AddArticleMissionComponent},
+  {path: 'affecter-article', component: AffecterArticleComponent},
   {path: 'login', component: LoginComponent},
 ];
 

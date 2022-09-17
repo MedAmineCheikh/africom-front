@@ -34,6 +34,7 @@ import { UpdateArticleMissionComponent } from './components/article_mission/upda
 import { ListArticleMissionComponent } from './components/article_mission/list-article-mission/list-article-mission.component';
 import { AddArticleMissionComponent } from './components/article_mission/add-article-mission/add-article-mission.component';
 import { LoginComponent } from './components/login/login.component';
+import { AffecterArticleComponent } from './components/affaire/affecter-article/affecter-article.component';
 
 @NgModule({
   declarations: [
@@ -66,7 +67,8 @@ import { LoginComponent } from './components/login/login.component';
     UpdateArticleMissionComponent,
     ListArticleMissionComponent,
     AddArticleMissionComponent,
-    LoginComponent
+    LoginComponent,
+    AffecterArticleComponent
   ],
   imports: [
     BrowserModule,

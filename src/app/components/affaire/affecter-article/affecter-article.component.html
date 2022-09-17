@@ -1,0 +1,49 @@
+<div class="row mb-3">
+  <h2 class="card-title text-center">Affecter un Article  </h2>
+
+
+  <table class="table table-hover">
+    <thead>
+    <tr>
+      <th scope="col">Designation</th>
+      <th scope="col">Q Realisee</th>
+      <th scope="col">Q Contractuelle</th>
+      <th scope="col">Status</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let a of articlesFind">
+      <td>{{a.designation}}</td>
+      <td>{{a.quantite_Realisee| number}}</td>
+      <td>{{a.quantite_Contractuelle | number}}</td>
+      <td>{{a.statut}}</td>
+      <td><button  (click)="getAffecter(a.code)" class="btn btn-outline-primary"  > Pick</button></td>
+    </tr>
+    </tbody>
+  </table>
+  <ul  class="nav nav-pills">
+    <li *ngFor=" let b of [].constructor(5);let pagearticle=index" >
+      <a (click)="getTopageArticle(pagearticle)" class="btn btn-outline-primary" >{{pagearticle}}</a>
+    </li>
+  </ul>
+</div>
+<h2 class="card-title text-center">Veuillez Confirmer</h2>
+<table *ngIf="articleAffecter" class="table table-hover">
+  <thead>
+  <tr>
+    <th scope="col">Designation</th>
+    <th scope="col">Q Realisee</th>
+    <th scope="col">Q Contractuelle</th>
+    <th scope="col">Status</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr >
+    <td>{{articleAffecter.designation}}</td>
+    <td>{{articleAffecter.quantite_Realisee| number}}</td>
+    <td>{{articleAffecter.quantite_Contractuelle | number}}</td>
+    <td>{{articleAffecter.statut}}</td>
+  </tr>
+  </tbody>
+</table>
+<div class="text-center"> <button  class="btn btn-primary" [disabled]="articleAffecter.code==null" (click)="OnAffecter(articleAffecter.code)">Affecter </button></div>
