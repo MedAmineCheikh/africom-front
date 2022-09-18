@@ -39,8 +39,8 @@
                 <td>{{o.demandeur}}</td>
                 <td>{{o.hebergement | number}}</td>
                 <td>{{o.remarque}}</td>
-                <td>{{o.debut_Previsionnel}}</td>
-                <td>{{o.fin_Previsionnel}}</td>
+                <td>{{o.debut_Previsionnel | date :'MMMM d, y, h:mm'}}</td>
+                <td>{{o.fin_Previsionnel | date :'MMMM d, y, h:mm'}}</td>
                 <td>{{o.frais_Mission | number}}</td>
                 <td> <button class="btn btn-secondary"><i class="bi bi-info-square"></i></button></td>
                 <td><button  (click)="getOrderId(o.id)" class="btn btn-warning"  ><i class="bi bi-arrow-up-left-square"></i></button></td>

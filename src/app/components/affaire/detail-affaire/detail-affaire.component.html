@@ -48,15 +48,15 @@
                 </div>
                 <div class="row">
                   <div class="col-lg-4 col-md-4 label">Date de Debut</div>
-                  <div class="col-lg-5 col-md-4">{{affaire.date_Debut}}</div>
+                  <div class="col-lg-5 col-md-4">{{affaire.date_Debut| date :'EEEE, MMMM d, y, h:mm a'}}</div>
                 </div>
                 <div class="row">
                   <div class="col-lg-4 col-md-4 label">Date d'Execution</div>
-                  <div class="col-lg-5 col-md-4 ">{{affaire.date_passage_Execution}}</div>
+                  <div class="col-lg-5 col-md-4 ">{{affaire.date_passage_Execution | date :'EEEE, MMMM d, y, h:mm a'}}</div>
                 </div>
                 <div class="row">
                   <div class="col-lg-4 col-md-4 label">Date de Cloture</div>
-                  <div class="col-lg-5 col-md-4 ">{{affaire.date_Cloture}}</div>
+                  <div class="col-lg-5 col-md-4 ">{{affaire.date_Cloture | date :'EEEE, MMMM d, y, h:mm a'}}</div>
                 </div>
                 <div class="row">
                   <div class="col-lg-4 col-md-4 label">Status</div>

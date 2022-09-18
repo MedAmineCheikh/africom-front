@@ -16,7 +16,7 @@ import { AddActiviteComponent } from './components/activite/add-activite/add-act
 import { UpdateActiviteComponent } from './components/activite/update-activite/update-activite.component';
 import { ListActiviteComponent } from './components/activite/list-activite/list-activite.component';
 import {HttpClientModule} from "@angular/common/http";
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { ListOrderComponent } from './components/work_order/list-order/list-order.component';
 import { AddOrderComponent } from './components/work_order/add-order/add-order.component';
 import { UpdateOrderComponent } from './components/work_order/update-order/update-order.component';
@@ -70,12 +70,13 @@ import { AffecterArticleComponent } from './components/affaire/affecter-article/
     LoginComponent,
     AffecterArticleComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule,
-    FormsModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        HttpClientModule,
+        FormsModule,
+        ReactiveFormsModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

@@ -14,34 +14,37 @@
   <div class="card">
     <div class="card-body">
       <h5 class="card-title">New Work Order Form</h5>
-      <form class="row g-3">
-        <div class="col-md-6"> <label for="inputName5" class="form-label">Demandeur :</label> <input [(ngModel)]="order.demandeur" name="nom" type="text" class="form-control" id="inputName5"></div>
-        <div class="col-md-6"> <label for="inputEmail5" class="form-label">Remarque :</label> <input type="text" [(ngModel)]="order.remarque" name="cin" class="form-control" id="inputEmail5"></div>
+      <form [formGroup]="neworderFG " (ngSubmit)="OnAddorder()"class="row g-3 ">
+        <div class="col-md-6 "> <label for="inputName5" class="form-label">Demandeur :</label> <input formControlName="demandeur" type="text" class="form-control" id="inputName5">
+        <small class="text-danger text-sm"*ngIf="neworderFG.controls['demandeur'].touched &&neworderFG.controls['demandeur'].errors
+          &&neworderFG.controls['demandeur'].errors!['required']||(submitted&&neworderFG.controls['demandeur'].errors )" >This field is required !</small></div>
+        <div class="col-md-6"> <label for="inputEmail5" class="form-label">Remarque :</label> <input type="text" formControlName="remarque" name="cin" class="form-control" id="inputEmail5"></div>
+
+          <div class="col-md-4"> <label class="form-label">N°fiche d'Intervention :</label> <input type="number" formControlName="n_fiche_Intervention" class="form-control" id="filenumb"></div>
+          <div class="col-md-4"> <label class="form-label">Frais de la mission :</label> <input type="number" formControlName="frais_Mission" class="form-control" id="frai"></div>
+          <div class="col-md-4"> <label class="form-label">Hebergement :</label> <input type="number" formControlName="hebergement" class="form-control" id="hebr"></div>
+
+
+        <div class="col-md-3"> <label  class="form-label">Debut Previsionnel</label> <input formControlName="debut_Previsionnel" type="date" class="form-control" id="inputZip">
+          <small class="text-danger text-sm"*ngIf="neworderFG.controls['debut_Previsionnel'].touched &&neworderFG.controls['debut_Previsionnel'].errors
+          &&neworderFG.controls['debut_Previsionnel'].errors!['required']||(submitted&&neworderFG.controls['debut_Previsionnel'].errors )" >This field is required !</small></div>
+        <div class="col-md-3"> <label  class="form-label">Fin Previsionnel</label> <input formControlName="fin_Previsionnel" type="date" class="form-control" id="fin">
+          <small class="text-danger text-sm"*ngIf="neworderFG.controls['fin_Previsionnel'].touched &&neworderFG.controls['fin_Previsionnel'].errors
+          &&neworderFG.controls['fin_Previsionnel'].errors!['required']||(submitted&&neworderFG.controls['fin_Previsionnel'].errors )" >This field is required !</small></div>
+        <div class="col-md-3"> <label  class="form-label">Debut Réel</label> <input formControlName="debut_Reel" name="debut_Reel" type="date" class="form-control" id="deb"></div>
+        <div class="col-md-3"> <label  class="form-label">Fin Réel</label> <input formControlName="fin_Reel" type="date" class="form-control" id="dfin"></div>
         <div class="col-md-3">
-            <label  class="form-label">Fichier</label>
-            <select [(ngModel)]="order.fichier" name="statut" id="ffff" class="form-select">
-
-              <option value="false" selected>Non</option>
-              <option value="true">Oui</option>
-            </select>
-        </div>
-          <div class="col-md-3"> <label class="form-label">N°fiche d'Intervention :</label> <input type="number" [(ngModel)]="order.n_fiche_Intervention" name="inter" class="form-control" id="filenumb"></div>
-          <div class="col-md-3"> <label class="form-label">Frais de la mission :</label> <input type="number" [(ngModel)]="order.frais_Mission" name="frai" class="form-control" id="frai"></div>
-          <div class="col-md-3"> <label class="form-label">Hebergement :</label> <input type="number" [(ngModel)]="order.hebergement" name="hebergement" class="form-control" id="hebr"></div>
-
-
-        <div class="col-md-3"> <label  class="form-label">Debut Previsionnel</label> <input [(ngModel)]="order.debut_Previsionnel" name="debut_Previsionnel" type="date" class="form-control" id="inputZip"></div>
-        <div class="col-md-3"> <label  class="form-label">Fin Previsionnel</label> <input [(ngModel)]="order.fin_Previsionnel" name="fin_Previsionnel" type="date" class="form-control" id="fin"></div>
-        <div class="col-md-3"> <label  class="form-label">Debut Réel</label> <input [(ngModel)]="order.debut_Reel" name="debut_Reel" type="date" class="form-control" id="deb"></div>
-        <div class="col-md-3"> <label  class="form-label">Fin Réel</label> <input [(ngModel)]="order.fin_Reel" name="fin_Reel" type="date" class="form-control" id="dfin"></div>
-        <div class="col-md-3">
-          <label  class="form-label">Status</label>
-          <select [(ngModel)]="order.statut" name="statut" id="input" class="form-select">
+          <label  class="form-label">Status <i class="bi bi-shield-fill-check text-success " ></i></label>
+          <select formControlName="statut" id="input" class="form-select">
 
             <option value="Activer">Activer</option>
             <option value="Desactiver">Desactiver</option>
           </select>
         </div>
+        <div *ngIf="neworderFG.invalid&&submitted " class="alert alert-danger alert-dismissible fade show" role="alert"> <i class="bi bi-exclamation-octagon me-1"></i> Please fill this fields with valid values : <i class="small" *ngIf="neworderFG.get('demandeur')?.getError('required')">*-demandeur required</i>
+          <i class="small" *ngIf="neworderFG.get('debut_Previsionnel')?.getError('required')">*-Debut Previsionnel required</i>
+          <i class="small" *ngIf="neworderFG.get('fin_Previsionnel')?.getError('required')">*-Fin Previsionnel required</i> <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>
+
         <div class="text-center"> <button type="submit" class="btn btn-primary col-2  me-1" (click)="OnAddorder()">Save</button> <button type="reset" class="btn btn-secondary ms-1">Reset</button></div>
       </form>
     </div>
