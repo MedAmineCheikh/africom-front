@@ -4,4 +4,6 @@ export class activite {
     statut: any;
     type_qualification: any;
     type_activite: any;
+  totalPages!:                 number;
+
 }

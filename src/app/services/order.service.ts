@@ -16,8 +16,8 @@ export class OrderService {
   public getAllOrders():Observable<WorkOrder[]>{
     return this.http.get<WorkOrder[]>(this.host+"workorders");
   }
-  public addOrder(w:WorkOrder):Observable<Object>{
-    return this.http.post(this.host+"saveworkorder",w)
+  public addOrder(w:WorkOrder,idaffaire:number):Observable<Object>{
+    return this.http.post(this.host+"saveworkorder/"+idaffaire,w)
   }
   public updateOrder(w:WorkOrder):Observable<WorkOrder>{
     return this.http.put<WorkOrder>(this.host+"update-workorderdto/",w);

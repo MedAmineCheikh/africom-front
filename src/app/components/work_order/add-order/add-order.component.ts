@@ -5,6 +5,7 @@ import {OrderService} from "../../../services/order.service";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {ArticleService} from "../../../services/article.service";
 import {AffaireService} from "../../../services/affaire.service";
+import {Affaire} from "../../../module/affaire";
 
 @Component({
   selector: 'app-add-order',
@@ -15,10 +16,19 @@ export class AddOrderComponent implements OnInit {
 order:WorkOrder=new WorkOrder();
 neworderFG!:FormGroup;
   submitted!: boolean;
+  affairepage:number=0;
+  affairesize:number=2;
+  affairestotalpages!:number;
+  affaires!:Affaire[];
+  Keyword:String='';
+  addaffaire:boolean=false;
+  affaire:Affaire=new Affaire();
 
   constructor(private router:Router, private orderService:OrderService,private fb:FormBuilder,private articleService:ArticleService,private affaireService:AffaireService) { }
 
   ngOnInit(): void {
+
+
     this.neworderFG=this.fb.group({
       demandeur:this.fb.control(null,[Validators.required,Validators.minLength(1)]),
       remarque:this.fb.control(null),
@@ -32,13 +42,24 @@ neworderFG!:FormGroup;
       statut:this.fb.control("Activer",[Validators.required]),
     })
   }
+onbooladdAffaire(){
+     this.addaffaire=! this.addaffaire;
+  if (this.addaffaire==true){
+    this.affaireService.searchAffairepage(this.Keyword,this.affairepage,this.affairesize).subscribe(
+      value => {this.affaires=value} ,error => console.log(error));
+  }
 
+
+console.log(this.affairestotalpages)
+     return console.log(this.addaffaire)
+
+}
   OnAddorder(){
     this.submitted = true;
     if(this.neworderFG.valid){
     this.order=this.neworderFG.value;
 
-    this.orderService.addOrder(this.order)
+    this.orderService.addOrder(this.order,this.affaire.n_Affiaire)
       .subscribe(
         ()=>this.router.navigateByUrl("/list-order"),error =>
         console.error());
@@ -49,6 +70,22 @@ neworderFG!:FormGroup;
   }
 
 
+  onSearchAffaire(kw:String){
+    this.Keyword=kw;
+return this.affaireService.searchAffairepage(this.Keyword,this.affairepage,this.affairesize).subscribe(
+  value => {this.affaires=value},error => console.log(error)
+);
+  }
 
+  getTopageAffaire(pageAffaire: number) {
+    this.affairepage=pageAffaire;
+    this.affaireService.searchAffairepage(this.Keyword,this.affairepage,this.affairesize).subscribe(
+      value => {this.affaires=value},error => console.log(error)
+    );
+  }
 
+  getAffaireid(n_Affiaire: number) {
+    return  this.affaireService.getAffaireById(n_Affiaire).subscribe(value => {this.affaire=value},
+      error => console.log(error));
+  }
 }

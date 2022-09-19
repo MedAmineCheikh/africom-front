@@ -3,4 +3,6 @@ export class qualification {
     designation!: String;
     statut: any;
     type_qualification: any;
+  totalPages!:                 number;
+
 }

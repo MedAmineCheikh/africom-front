@@ -1,3 +1,4 @@
+import {activite} from "./Activite";
 
 export class employe {
     matricule!: String;
@@ -8,11 +9,7 @@ export class employe {
     n_Permis!: String;
     statut: any;
   qualifications !: activite[];
+  totalPages!:                 number;
+
 }
-export class activite {
-  code!: String;
-  designation!: String;
-  statut: any;
-  type_qualification: any;
-  type_activite: any;
-}
+

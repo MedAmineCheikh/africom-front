@@ -25,5 +25,8 @@ export class AffaireService {
   public getarticleAffaire(id:number):Observable<Article[]>{
     return this.http.get<Article[]>(this.host+"affaireArticle/"+id)
   }
+  public searchAffairepage(Keyword:String,page:number,size:number):Observable<Affaire[]>{
+    return this.http.get<Affaire[]>(this.host+"searchaffaires?Keyword="+Keyword+"&page="+page+"&size="+size);
+  }
 
 }

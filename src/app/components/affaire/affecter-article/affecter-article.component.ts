@@ -9,7 +9,7 @@ import {Article} from "../../../module/article";
   styleUrls: ['./affecter-article.component.css']
 })
 export class AffecterArticleComponent implements OnInit {
-  pagearticle :number =0
+  pagearticle :number =0;
   size:number=4;
   articlesFind!:Article[] | [];
   articleAffecter:Article=new Article();

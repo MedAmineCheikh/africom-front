@@ -1,3 +1,5 @@
+import {Article} from "./article";
+
 export class Affaire {
   articles!:                   Article[];
   bon_de_Commande!:            string;
@@ -7,6 +9,7 @@ export class Affaire {
   designation_Affaire!:        string;
   lieu_multiple_par_Mission!:  boolean;
   montant!:                    number;
+  totalPages!:                 number;
   montant_Vente!:              number;
   montant_budgetaire_Matriel!: number;
   montant_budgetaire_Service!: number;
@@ -14,10 +17,4 @@ export class Affaire {
   statut!:                     string;
 }
 
-export class Article {
-  code!:                   string;
-  designation!:            string;
-  quantite_Contractuelle!: number;
-  quantite_Realisee!:      number;
-  statut!:                 string;
-}
+

@@ -43,8 +43,67 @@
         </div>
         <div *ngIf="neworderFG.invalid&&submitted " class="alert alert-danger alert-dismissible fade show" role="alert"> <i class="bi bi-exclamation-octagon me-1"></i> Please fill this fields with valid values : <i class="small" *ngIf="neworderFG.get('demandeur')?.getError('required')">*-demandeur required</i>
           <i class="small" *ngIf="neworderFG.get('debut_Previsionnel')?.getError('required')">*-Debut Previsionnel required</i>
-          <i class="small" *ngIf="neworderFG.get('fin_Previsionnel')?.getError('required')">*-Fin Previsionnel required</i> <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>
+          <i class="small" *ngIf="neworderFG.get('fin_Previsionnel')?.getError('required')">*-Fin Previsionnel required</i> <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+  <button class="btn btn-outline-primary"(click)="onbooladdAffaire()">Add Affaire To this Work Order</button>
+    <div *ngIf="addaffaire==true" class="border-top  border-primary border-1">
+      <h3 class="text-center card-title">Add Affaire to Work Order </h3>
+      <div class="input-group " style="width: 350px">
+        <span class="input-group-text btn-outline-primary " id="basic-addon1">Designation</span>
+        <input type="text" class="form-control" placeholder="Search..." aria-label="Designation" aria-describedby="basic-addon1">
+      <button class="btn-outline-primary bi bi-search"></button>
+      </div>
 
+      <table class="table table-hover">
+          <thead>
+          <tr>
+            <th scope="col">Designation</th>
+              <th scope="col">Date Debut</th>
+            <th scope="col">Date Cloture</th>
+            <th scope="col">Montant</th>
+            <th scope="col">Choose</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let a of affaires">
+            <td>{{a.designation_Affaire}}</td>
+            <td>{{a.date_Debut}}</td>
+            <td>{{a.date_Cloture}}</td>
+            <td>{{a.montant}}</td>
+            <td><button class="btn btn-outline-primary" (click)="getAffaireid(a.n_Affiaire)">Pick </button></td>
+          </tr>
+          </tbody>
+        </table>
+      <ul  class="nav nav-pills">
+        <li *ngFor=" let b of [].constructor(affairestotalpages);let pageAffaire=index" >
+          <a (click)="getTopageAffaire(pageAffaire)" class="btn btn-outline-primary" >{{pageAffaire}}</a>
+        </li>
+      </ul>
+      <div *ngIf="affaire.n_Affiaire">
+      <h3 class="text-center card-title"> Affaire Picked </h3>
+
+      <table class="table table-hover">
+        <thead>
+        <tr>
+          <th scope="col">Designation</th>
+          <th scope="col">Date Debut</th>
+          <th scope="col">Date Cloture</th>
+          <th scope="col">Montant</th>
+          <th scope="col">Picked</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td>{{affaire.designation_Affaire}}</td>
+          <td>{{affaire.date_Debut}}</td>
+          <td>{{affaire.date_Cloture}}</td>
+          <td>{{affaire.montant}}</td>
+          <td><h4 class=" bi bi-check2-circle text-success"></h4></td>
+        </tr>
+        </tbody>
+      </table>
+      </div>
+    </div>
         <div class="text-center"> <button type="submit" class="btn btn-primary col-2  me-1" (click)="OnAddorder()">Save</button> <button type="reset" class="btn btn-secondary ms-1">Reset</button></div>
       </form>
     </div>
