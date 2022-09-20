@@ -14,7 +14,7 @@
   <div class="card">
     <div class="card-body">
       <h5 class="card-title">New Work Order Form</h5>
-      <form [formGroup]="neworderFG " (ngSubmit)="OnAddorder()"class="row g-3 ">
+      <form [formGroup]="neworderFG " class="row g-3 ">
         <div class="col-md-6 "> <label for="inputName5" class="form-label">Demandeur :</label> <input formControlName="demandeur" type="text" class="form-control" id="inputName5">
         <small class="text-danger text-sm"*ngIf="neworderFG.controls['demandeur'].touched &&neworderFG.controls['demandeur'].errors
           &&neworderFG.controls['demandeur'].errors!['required']||(submitted&&neworderFG.controls['demandeur'].errors )" >This field is required !</small></div>
@@ -51,7 +51,7 @@
       <div class="input-group " style="width: 350px">
         <span class="input-group-text btn-outline-primary " id="basic-addon1">Designation</span>
         <input type="text" class="form-control" placeholder="Search..." aria-label="Designation" aria-describedby="basic-addon1">
-      <button class="btn-outline-primary bi bi-search"></button>
+      <button class="btn-outline-primary bi bi-search" (click)="OnsearchAffaire(Keyword)"></button>
       </div>
 
       <table class="table table-hover">
@@ -75,7 +75,7 @@
           </tbody>
         </table>
       <ul  class="nav nav-pills">
-        <li *ngFor=" let b of [].constructor(affairestotalpages);let pageAffaire=index" >
+        <li *ngFor=" let b of [].constructor(paginationaffaire);let pageAffaire=index" >
           <a (click)="getTopageAffaire(pageAffaire)" class="btn btn-outline-primary" >{{pageAffaire}}</a>
         </li>
       </ul>

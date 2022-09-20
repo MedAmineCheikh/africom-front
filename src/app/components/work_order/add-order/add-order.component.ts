@@ -18,7 +18,8 @@ neworderFG!:FormGroup;
   submitted!: boolean;
   affairepage:number=0;
   affairesize:number=2;
-  affairestotalpages!:number;
+  affairestotalpages!:Affaire | undefined;
+  paginationaffaire!:number | undefined ;
   affaires!:Affaire[];
   Keyword:String='';
   addaffaire:boolean=false;
@@ -27,7 +28,8 @@ neworderFG!:FormGroup;
   constructor(private router:Router, private orderService:OrderService,private fb:FormBuilder,private articleService:ArticleService,private affaireService:AffaireService) { }
 
   ngOnInit(): void {
-
+    this.affaireService.searchAffairepage(this.Keyword,this.affairepage,this.affairesize).subscribe(
+      value => {this.affaires=value} ,error => console.log(error));
 
     this.neworderFG=this.fb.group({
       demandeur:this.fb.control(null,[Validators.required,Validators.minLength(1)]),
@@ -43,17 +45,17 @@ neworderFG!:FormGroup;
     })
   }
 onbooladdAffaire(){
+  this.submitted = true;
      this.addaffaire=! this.addaffaire;
-  if (this.addaffaire==true){
-    this.affaireService.searchAffairepage(this.Keyword,this.affairepage,this.affairesize).subscribe(
-      value => {this.affaires=value} ,error => console.log(error));
-  }
 
-
-console.log(this.affairestotalpages)
+    if (this.affaires!=null){
+      this.paginationaffaire= this.affaires?.find(value => value.totalPages>=1)?.totalPages;
+    }
+console.log(this.paginationaffaire)
      return console.log(this.addaffaire)
-
+  this.submitted = false;
 }
+
   OnAddorder(){
     this.submitted = true;
     if(this.neworderFG.valid){
@@ -87,5 +89,11 @@ return this.affaireService.searchAffairepage(this.Keyword,this.affairepage,this.
   getAffaireid(n_Affiaire: number) {
     return  this.affaireService.getAffaireById(n_Affiaire).subscribe(value => {this.affaire=value},
       error => console.log(error));
+  }
+
+  OnsearchAffaire(Keyword: String) {
+
+      this.affaireService.searchAffairepage(this.Keyword,this.affairepage,this.affairesize).subscribe(
+        value => {this.affaires=value} ,error => console.log(error));
   }
 }
