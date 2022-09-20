@@ -10,18 +10,27 @@ import {Article} from "../../../module/article";
 })
 export class AffecterArticleComponent implements OnInit {
   pagearticle :number =0;
-  size:number=4;
-  articlesFind!:Article[] | [];
+  size:number=2;
+  articlesFind!:Article[];
   articleAffecter:Article=new Article();
   id!:number;
+  kw:String='';
+  paginationaarticle!:number | undefined;
+  affecter:boolean=false;
   constructor(private articleService:ArticleService,private router: Router,private activatedroute:ActivatedRoute) { }
 
   ngOnInit(): void {
     this.id=this.activatedroute.snapshot.params['id'];
-    this.articleService.pageArticle(this.pagearticle,this.size).subscribe(value => this.articlesFind=value,error =>
-      console.log(error));
+    this.articleService.pageArticle(this.kw,this.pagearticle,this.size).subscribe(value => {
+        this.articlesFind = value
+      },
+      error =>
+        console.log(error)
+    );
+
 
   }
+
   OnAffecter(ida:String){
     this.articleService.afftecterArticleToAffaire(this.id,ida,this.articleAffecter).subscribe(
       value => {
@@ -35,11 +44,12 @@ export class AffecterArticleComponent implements OnInit {
       error =>
         console.log(error));
     console.log(this.articleAffecter);
+
   }
 
   getTopageArticle(pagearticle: number) {
     this.pagearticle=pagearticle;
-    this.articleService.pageArticle(this.pagearticle,this.size).subscribe(value => this.articlesFind=value,error =>
+    this.articleService.pageArticle(this.kw,this.pagearticle,this.size).subscribe(value => this.articlesFind=value,error =>
       console.log(error));
   }
   reload(){
@@ -47,4 +57,10 @@ export class AffecterArticleComponent implements OnInit {
       .then(() => {
         window.location.reload();
       });}
+   totalpages(){
+    this.affecter=!this.affecter;
+   this.paginationaarticle=this.articlesFind?.find(value => value.totalPages>=0)?.totalPages;
+    console.log(this.paginationaarticle);
+  }
+
 }

@@ -27,7 +27,7 @@ export class ArticleService {
   public searchArticle(kw:String):Observable<Article[]>{
     return this.http.get<Article[]>(this.host+"searcharticles?Keyword="+kw);
   }
-  public pageArticle(pagearticle:number,size:number):Observable<Article[]>{
-    return this.http.get<Article[]>(this.host+"pagearticles?page="+pagearticle+"&size="+size);
+  public pageArticle(kw:String,pagearticle:number,size:number):Observable<Article[]>{
+    return this.http.get<Article[]>(this.host+"searcharticle?Keyword="+kw+"&page="+pagearticle+"&size="+size);
   }
 }

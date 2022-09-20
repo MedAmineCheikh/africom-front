@@ -1,4 +1,6 @@
-<div class="row mb-3">
+<button *ngIf="!affecter" class="btn btn-outline-primary " (click)="totalpages()"> affecter un article</button>
+<div *ngIf="affecter">
+<div  class="row mb-3">
   <h2 class="card-title text-center">Affecter un Article  </h2>
 
 
@@ -22,7 +24,7 @@
     </tbody>
   </table>
   <ul  class="nav nav-pills">
-    <li *ngFor=" let b of [].constructor(5);let pagearticle=index" >
+    <li *ngFor=" let b of [].constructor(paginationaarticle);let pagearticle=index" >
       <a (click)="getTopageArticle(pagearticle)" class="btn btn-outline-primary" >{{pagearticle}}</a>
     </li>
   </ul>
@@ -47,3 +49,4 @@
   </tbody>
 </table>
 <div class="text-center"> <button  class="btn btn-primary" [disabled]="articleAffecter.code==null" (click)="OnAffecter(articleAffecter.code)">Affecter </button></div>
+</div>
