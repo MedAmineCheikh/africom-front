@@ -18,7 +18,7 @@ neworderFG!:FormGroup;
   submitted!: boolean;
   affairepage:number=0;
   affairesize:number=2;
-  affairestotalpages!:Affaire | undefined;
+  idaffaire!:number ;
   paginationaffaire!:number | undefined ;
   affaires!:Affaire[];
   Keyword:String='';
@@ -60,13 +60,20 @@ console.log(this.paginationaffaire)
     this.submitted = true;
     if(this.neworderFG.valid){
     this.order=this.neworderFG.value;
-
+    if (this.affaire.n_Affiaire==undefined){
+    this.idaffaire=0;
+      this.orderService.addOrder(this.order,this.idaffaire)
+        .subscribe(
+          ()=>this.router.navigateByUrl("/list-order"),error =>
+            console.error());
+      this.submitted = false;
+    }else {
     this.orderService.addOrder(this.order,this.affaire.n_Affiaire)
       .subscribe(
         ()=>this.router.navigateByUrl("/list-order"),error =>
         console.error());
-      this.submitted = false;
-    ;
+      this.submitted = false;}
+
     }
 
   }
