@@ -90,6 +90,7 @@
           <th scope="col">Date Cloture</th>
           <th scope="col">Montant</th>
           <th scope="col">Picked</th>
+          <th scope="col">Remove</th>
         </tr>
         </thead>
         <tbody>
@@ -99,6 +100,7 @@
           <td>{{affaire.date_Cloture}}</td>
           <td>{{affaire.montant}}</td>
           <td><h4 class=" bi bi-check2-circle text-success"></h4></td>
+          <td><button class=" btn btn-outline-danger bi bi-trash-fill" (click)="OnRemoveaffaire()"></button></td>
         </tr>
         </tbody>
       </table>

@@ -103,4 +103,8 @@ return this.affaireService.searchAffairepage(this.Keyword,this.affairepage,this.
       this.affaireService.searchAffairepage(this.Keyword,this.affairepage,this.affairesize).subscribe(
         value => {this.affaires=value} ,error => console.log(error));
   }
+
+  OnRemoveaffaire() {
+    return this.affaire.n_Affiaire=0;
+  }
 }
