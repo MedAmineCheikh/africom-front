@@ -51,9 +51,10 @@ onbooladdAffaire(){
     if (this.affaires!=null){
       this.paginationaffaire= this.affaires?.find(value => value.totalPages>=1)?.totalPages;
     }
+  this.submitted = false;
 console.log(this.paginationaffaire)
      return console.log(this.addaffaire)
-  this.submitted = false;
+
 }
 
   OnAddorder(){
@@ -72,7 +73,8 @@ console.log(this.paginationaffaire)
       .subscribe(
         ()=>this.router.navigateByUrl("/list-order"),error =>
         console.error());
-      this.submitted = false;}
+      this.submitted = false;
+      }
 
     }
 

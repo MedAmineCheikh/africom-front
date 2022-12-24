@@ -16,7 +16,7 @@
       <h5 class="card-title">New Work Order Form</h5>
       <form [formGroup]="neworderFG " class="row g-3 ">
         <div class="col-md-6 "> <label for="inputName5" class="form-label">Demandeur :</label> <input formControlName="demandeur" type="text" class="form-control" id="inputName5">
-        <small class="text-danger text-sm"*ngIf="neworderFG.controls['demandeur'].touched &&neworderFG.controls['demandeur'].errors
+        <small class="text-danger text-sm" *ngIf="neworderFG.controls['demandeur'].touched &&neworderFG.controls['demandeur'].errors
           &&neworderFG.controls['demandeur'].errors!['required']||(submitted&&neworderFG.controls['demandeur'].errors )" >This field is required !</small></div>
         <div class="col-md-6"> <label for="inputEmail5" class="form-label">Remarque :</label> <input type="text" formControlName="remarque" name="cin" class="form-control" id="inputEmail5"></div>
 
@@ -25,11 +25,11 @@
           <div class="col-md-4"> <label class="form-label">Hebergement :</label> <input type="number" formControlName="hebergement" class="form-control" id="hebr"></div>
 
 
-        <div class="col-md-3"> <label  class="form-label">Debut Previsionnel</label> <input formControlName="debut_Previsionnel" type="date" class="form-control" id="inputZip">
-          <small class="text-danger text-sm"*ngIf="neworderFG.controls['debut_Previsionnel'].touched &&neworderFG.controls['debut_Previsionnel'].errors
+        <div class="col-md-3"> <label  class="form-label">Debut Previsionnel</label> <input formControlName="debut_Previsionnel" type="datetime-local"  class="form-control" id="inputZip">
+          <small class="text-danger text-sm" *ngIf="neworderFG.controls['debut_Previsionnel'].touched &&neworderFG.controls['debut_Previsionnel'].errors
           &&neworderFG.controls['debut_Previsionnel'].errors!['required']||(submitted&&neworderFG.controls['debut_Previsionnel'].errors )" >This field is required !</small></div>
-        <div class="col-md-3"> <label  class="form-label">Fin Previsionnel</label> <input formControlName="fin_Previsionnel" type="date" class="form-control" id="fin">
-          <small class="text-danger text-sm"*ngIf="neworderFG.controls['fin_Previsionnel'].touched &&neworderFG.controls['fin_Previsionnel'].errors
+        <div class="col-md-3"> <label  class="form-label">Fin Previsionnel</label> <input formControlName="fin_Previsionnel" type="datetime-local" class="form-control" id="fin">
+          <small class="text-danger text-sm" *ngIf="neworderFG.controls['fin_Previsionnel'].touched &&neworderFG.controls['fin_Previsionnel'].errors
           &&neworderFG.controls['fin_Previsionnel'].errors!['required']||(submitted&&neworderFG.controls['fin_Previsionnel'].errors )" >This field is required !</small></div>
         <div class="col-md-3"> <label  class="form-label">Debut Réel</label> <input formControlName="debut_Reel" name="debut_Reel" type="date" class="form-control" id="deb"></div>
         <div class="col-md-3"> <label  class="form-label">Fin Réel</label> <input formControlName="fin_Reel" type="date" class="form-control" id="dfin"></div>
@@ -45,7 +45,7 @@
           <i class="small" *ngIf="neworderFG.get('debut_Previsionnel')?.getError('required')">*-Debut Previsionnel required</i>
           <i class="small" *ngIf="neworderFG.get('fin_Previsionnel')?.getError('required')">*-Fin Previsionnel required</i> <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
-  <button class="btn btn-outline-primary"(click)="onbooladdAffaire()">Add Affaire To this Work Order</button>
+  <button class="btn btn-outline-primary" (click)="onbooladdAffaire()">Add Affaire To this Work Order</button>
     <div *ngIf="addaffaire==true" class="border-top  border-primary border-1">
       <h3 class="text-center card-title">Add Affaire to Work Order </h3>
       <div class="input-group " style="width: 350px">
